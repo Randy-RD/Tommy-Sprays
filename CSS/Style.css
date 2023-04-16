@@ -2363,8 +2363,7 @@ backdrop-filter: blur(7.8px);
        -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
       clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
           /* Set a specific height */
-          min-height: 750px;  
-          background-attachment: fixed;
+          min-height: 900px; 
           background-position: center;
           background-repeat: no-repeat;
           background-size: 120%;
@@ -2378,11 +2377,10 @@ backdrop-filter: blur(7.8px);
      -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
     clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
         /* Set a specific height */
-        min-height: 750px;
-        background-attachment: fixed;
+        min-height: 900px;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: 120%;
       
     }
     .parallax-top:before {
@@ -2395,7 +2393,7 @@ backdrop-filter: blur(7.8px);
       background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
-      background-attachment: fixed;
+	    min-height: 900px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: 120%; 
