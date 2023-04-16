@@ -896,6 +896,12 @@ html {
     }
 }
 
+@media only screen and (max-width: 768px) {
+  .herro {
+      background-attachment: scroll;
+  }
+}
+
 
     /******************************************
         /* SlideShow
