@@ -1014,7 +1014,8 @@ html {
 
 @media only screen and (max-width: 768px) {
     .slideWrap {
-        height: 35vh;
+        height: auto; /* Change the height to auto to avoid extra space */
+        padding: 2% 0; /* Add padding to the top and bottom of the section */
     }
 
     .one {
@@ -1033,16 +1034,17 @@ html {
     }
     .buttons button#next {
         position: absolute;
-        top: 35%;
+        top: 50%; /* Center the buttons along the y-axis */
         right: 15px;
+        transform: translateY(-50%); /* This is necessary to complete the vertical centering */
     }
     
     .buttons button#prev {
         position: absolute;
-        top: 35%;
+        top: 50%; /* Center the buttons along the y-axis */
         left: 15px;
+        transform: translateY(-50%); /* This is necessary to complete the vertical centering */
     }
-
 }
 
 /* iPad and iPad Pro specific media queries */
