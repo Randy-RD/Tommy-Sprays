@@ -2260,7 +2260,7 @@ backdrop-filter: blur(7.8px);
       
       .parallax {
           /* The image used */
-          background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
+          background-image: url('../Assets/airbrushArtCanadaOntario.png');
         
        -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
       clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
@@ -2275,7 +2275,7 @@ backdrop-filter: blur(7.8px);
 
       .parallax-bottom {
         /* The image used */
-        background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
+        background-image: url('../Assets/airbrushArtOntarioQuebec.png');
       
      -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
     clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
