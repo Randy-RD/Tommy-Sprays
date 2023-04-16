@@ -2323,6 +2323,16 @@ backdrop-filter: blur(7.8px);
       .aboutFoot {
         position: absolute;
       }
+
+	@media only screen and (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+
+    .parallax-top:before {
+        background-attachment: scroll;
+    }
+}
       
 
 
