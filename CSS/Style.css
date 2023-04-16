@@ -992,6 +992,7 @@ html {
 
 @media only screen and (max-width: 991px) {
     .slideWrap {
+	    height: 30vh;
     }
 
     .one {
@@ -1013,7 +1014,7 @@ html {
 
 @media only screen and (max-width: 768px) {
   .slideWrap {
-      
+      height: 25vh;
       padding: 2% 0;
 	margin-bottom: 0;	  
   }
