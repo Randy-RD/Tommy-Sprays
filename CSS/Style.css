@@ -734,13 +734,12 @@ html {
     animation-delay: 0.5s;
   }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:768px) {
     .Herro {
         height: 60vh;
         background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
-        background-size: cover;
-        background-position-y: -200px;
-        background-position-x: -60px;
+        background-size: 120%;
+        
         
     }
 
