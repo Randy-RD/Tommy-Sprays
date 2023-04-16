@@ -2353,6 +2353,54 @@ backdrop-filter: blur(7.8px);
         background-attachment: scroll;
     }
 }
+
+@media only screen and (max-width: 768px) {
+        .parallax {
+          /* The image used */
+          background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
+        
+       -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
+      clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
+          /* Set a specific height */
+          min-height: 750px;  
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 120%;
+        
+      }
+
+      .parallax-bottom {
+        /* The image used */
+        background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
+      
+     -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
+    clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
+        /* Set a specific height */
+        min-height: 750px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+      
+    }
+    .parallax-top:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 120%; 
+  }
+        
+    }
       
 
 
