@@ -1013,38 +1013,44 @@ html {
 }
 
 @media only screen and (max-width: 768px) {
-    .slideWrap {
-        height: auto; /* Change the height to auto to avoid extra space */
-        padding: 2% 0; /* Add padding to the top and bottom of the section */
-    }
+  .slideWrap {
+      height: 400px;
+      padding: 2% 0;
+  }
 
-    .one {
-        width: 100%;
-    }
+  .one {
+      width: 100%;
+  }
 
-    .slider {
-        width: 100%;
-    }
+  .slider {
+      width: 100%;
+  }
 
-    .slide {
-        width: 100%;
-    }
-    .buttons img {
-        height: 3vh;
-    }
-    .buttons button#next {
-        position: absolute;
-        top: 50%; /* Center the buttons along the y-axis */
-        right: 15px;
-        transform: translateY(-50%); /* This is necessary to complete the vertical centering */
-    }
-    
-    .buttons button#prev {
-        position: absolute;
-        top: 50%; /* Center the buttons along the y-axis */
-        left: 15px;
-        transform: translateY(-50%); /* This is necessary to complete the vertical centering */
-    }
+  .slide {
+      width: 100%;
+  }
+  
+  .buttons img {
+      height: 3vh;
+  }
+  
+  .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      top: 25%;
+      transform: translateY(-50%);
+  }
+  
+  .buttons button#next {
+      right: 15px;
+  }
+  
+  .buttons button#prev {
+      left: 15px;
+  }
 }
 
 /* iPad and iPad Pro specific media queries */
