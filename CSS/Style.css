@@ -693,7 +693,7 @@ html {
     background-image: url('../Assets/image12.png');
     background-position-x: center;
     background-position-y: center;
-    background-position: cover;
+    background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     display: flex;
@@ -897,7 +897,7 @@ html {
 }
 
 @media only screen and (max-width: 768px) {
-  .herro {
+  .Herro {
       background-attachment: scroll;
   }
 }
