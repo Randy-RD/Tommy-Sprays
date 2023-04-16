@@ -917,7 +917,6 @@ html {
 }
 
 .one {
-    height: 100vh;
     width: 60%;
     position: relative;
     margin: 0 auto;
@@ -2353,6 +2352,9 @@ backdrop-filter: blur(7.8px);
     .parallax-top:before {
         background-attachment: scroll;
     }
+	.parallax-bottom {
+        background-attachment: scroll;
+    }	
 }
 
 @media only screen and (max-width: 768px) {
