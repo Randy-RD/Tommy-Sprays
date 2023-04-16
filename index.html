@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tommy Sprays Custom Airbrush And Design</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ottawa based, Custom airbrushing of goalie masks, helmets, motorcycles and more.">
+    <meta name="keywords" content="Airbrush, Goalie Mask, Custom airbrush, Ottawa, Helmets, Motorcycle">
+    <meta property="og:title" content="Tommy Sprays Custom Airbrush And Design">
+    <meta property="og:description" content="Ottawa based, Custom airbrushing of goalie masks, helmets, motorcycles and more.">
+    <meta property="og:image" content="OGAirbrush.png">
+    <meta property="og:url" content="TomWeb.html">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="CSS\Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Graduate&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+</head>
+
+<body class="mainBod">
+
+    <div id="preloader"></div>
+    
+    <nav class="nav">
+        <div class="container">
+            <div class="logo fixedLogo">
+                <a href="index.html"><img src="Assets\OttawaAirbrushGoalieMaskLogo.png" alt="Airbrush Logo"></a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Gallery.html">Gallery</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Faq.html">FAQ</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="https://www.instagram.com/tommysprays/"><img class="headInsta" src="Assets\InstaIcon.png" alt="Instagram Icon"></a></li>
+                    <!-- <li><a href=""><img class="headTik" src="TikTokIcon.png" alt=""></a></li> -->
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+    
+        
+    
+    <!-- Jquery needed -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+        <script>
+            $(window).scroll(function() {
+                if ($(document).scrollTop() > 50) {
+                    $('.nav').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.nav').removeClass('affix');
+                }
+            });
+        </script>
+    
+    <!-- /******************************************
+		/* Main Hero
+		/*******************************************/ -->
+    
+    <main class="Herro">
+        <h1>Custom Airbrush and Design.</h1>
+        <span>Goalie Masks, Helmets, Motorcycles and more.</span>
+    </main>
+
+
+
+    <!-- /******************************************
+		/*  Slideshow 
+		/*******************************************/ -->
+        <section class="slideWrap">  
+        <section class="one">
+            <div class="slider">
+                <div class="slide current">
+                </div>
+                <div class="slide">
+                </div>
+                <div class="slide">
+                </div>
+                <div class="slide">
+                </div>
+              </div>
+              <div class="buttons">
+                <button id="prev"><img src="Assets\prevArrowBlack.png" alt="Previous"></button>
+                <button id="next"><img src="Assets\nextArrowBlack.png" alt="Next"></button>
+              </div>
+    </section>
+</section>
+
+    <!-- /******************************************
+		/*  About Me 
+		/*******************************************/ -->
+        <div class="outerContainer">
+            <section class="aboutMe">
+                <div class="image"></div>
+                <div class="aboutDesc">
+                  <div class="aboutWrap">
+                    <img src="Assets\CanadaAirbrushMaskArtAbout.png" alt="About Me">
+                    <p>Based in Ottawa, I've been airbrushing since 2018. Privileged to be mentored by renowned local airbrush artist Joey White, he has passed down his skills and expertise which has allowed me to rapidly progress and hone my skills. With each project I am dedicated to producing high-quality work that reflects my pride and passion for the craft. </p>
+                    <a href="TomWebAbout.html"><button class="aboutMeButton">Read More</button></a>
+                  </div>
+                </div>
+              </section>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const aboutDescImg = document.querySelector(".aboutDesc img");
+              const aboutDescP = document.querySelector(".aboutDesc p");
+              const aboutDescButton = document.querySelector(".aboutDesc button");
+          
+              const observer = new IntersectionObserver(
+                (entries, observer) => {
+                  entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                      aboutDescImg.classList.add("show");
+                      aboutDescP.classList.add("show");
+                      aboutDescButton.classList.add("show");
+                      observer.unobserve(entry.target);
+                    }
+                  });
+                },
+                {
+                  threshold: 0.5,
+                }
+              );
+          
+              observer.observe(aboutDescImg);
+            });
+          </script>
+
+<!-- /******************************************
+		/*  Insta Video 
+		/*******************************************/ --> 
+
+        <div class="instaOuterContainer">
+            <div class="instaContainer">
+                <section class="instaWrap">
+                  <div class="getIn-Touch">
+                    <!-- content for instaWrap section goes here -->
+                    <img class="gitImage" src="Assets\CanadaAirbrushMaskArtGetTouch.png" alt="Get In Touch">
+                    <p class="gitPar">Please contact me and/or check out the FAQ if you are interested in getting something painted!</p>
+                    <div class="gitButtonsWrapper">
+                        <a href="TomWebContact.html"><button class="gitContactButton">Contact Me</button></a>
+                        <a href="TomFaq.html"><button class="gitFaqButton">FAQ</button></a>
+                    </div>
+                  </div>
+                </section>
+                <div class="video-container">
+                  <video autoplay muted loop>
+                    <source src="Assets\336071638_8986263561447298_2131242781502824206_n.mp4" type="video/mp4">
+                    <!-- You can add other video formats here for cross-browser compatibility -->
+                  </video>
+                </div>
+              </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const gitImage = document.querySelector(".gitImage");
+              const gitPar = document.querySelector(".gitPar");
+              const gitFaqButton = document.querySelector(".gitFaqButton");
+              const gitContactButton = document.querySelector(".gitContactButton");
+          
+              const observer = new IntersectionObserver(
+                (entries, observer) => {
+                  entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                      gitImage.classList.add("show");
+                      gitPar.classList.add("show");
+                      gitFaqButton.classList.add("show");
+                      gitContactButton.classList.add("show");
+                      observer.unobserve(entry.target);
+                    }
+                  });
+                },
+                {
+                  threshold: 0.5,
+                }
+              );
+          
+              observer.observe(gitImage);
+            });
+          </script>
+
+
+<section class="getInTouchSec">
+    <a class="touchOne" href="https://www.instagram.com/tommysprays/"><img src="Assets\InstaIcon.png" alt="Instagram Icon"></a>
+    <a class="touchTwo" href="https://www.tiktok.com/@tommysprays?lang=en"><img src="Assets\TikTokIcon.png" alt="TikTok Icon"></a>
+</section>
+
+<!-- /******************************************
+		/* Footer
+		/*******************************************/ -->
+
+        <footer class="faqFoot">
+            <div class="top_header">
+            <section>
+              <span><i class="fa fa-map-marker"> <img src="Assets\locationIcon.png" alt="Location Icon"></i></span>
+              <span>Ottawa, On</span>
+              </section>
+              <section>
+              <span><i class="fa fa-phone"> <img src="Assets\PhoneIcon.png" alt="Phone Icon"></i></span>
+              <span>(613) 859-3906</span>
+              </section>
+              <section>
+              <span><i class="fa fa-envelope"><img src="Assets\emailIcon.png" alt="Email Icon"></i></span>
+              <span>tommy_tangle@hotmail.com</span>
+            </section>
+            </div>
+            <span class="border-shape"></span>
+            <div class="bottom_content">
+            <section>
+              <a href="index.html">Home</a>
+              <a href="Gallery.html">Gallery</a>
+              <a href="About.html">About</a>
+              <a href="Faq.html">FAQ</a>
+              <a href="Contact.html">Contact</a>
+            </section>
+            </div>
+            <div class="copyright">
+            Copyright © 2023 tommysprays.com - All rights reserved 
+            </div>
+            </footer>
+
+
+    <script type="text/javascript" src="JS\Script.js"></script>
+</body>
+</html>

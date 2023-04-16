@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact | Tommy Sprays</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Me | Ottawa based, Custom airbrushing of goalie masks, helmets, motorcycles and more.">
+    <meta name="keywords" content="Airbrush, Goalie Mask, Custom airbrush, Ottawa, Helmets, Motorcycle">
+    <meta property="og:title" content="Tommy Sprays Custom Airbrush And Design">
+    <meta property="og:description" content="Ottawa based, Custom airbrushing of goalie masks, helmets, motorcycles and more.">
+    <meta property="og:image" content="OGAirbrush.png">
+    <meta property="og:url" content="TomWeb.html">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="CSS\Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Graduate&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+</head>
+
+<body class="mainBod always-affix">
+
+    <div id="preloader"></div>
+    
+    <nav class="nav">
+      <div class="container">
+          <div class="logo fixedLogo">
+              <a href="index.html"><img src="Assets\OttawaAirbrushGoalieMaskLogo.png" alt="Airbrush Logo"></a>
+          </div>
+          <div id="mainListDiv" class="main_list">
+              <ul class="navlinks">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="Gallery.html">Gallery</a></li>
+                  <li><a href="About.html">About</a></li>
+                  <li><a href="Faq.html">FAQ</a></li>
+                  <li><a href="Contact.html">Contact</a></li>
+                  <li><a href="https://www.instagram.com/tommysprays/"><img class="headInsta" src="Assets\InstaIcon.png" alt="Instagram Icon"></a></li>
+                  <!-- <li><a href=""><img class="headTik" src="TikTokIcon.png" alt=""></a></li> -->
+              </ul>
+          </div>
+          <span class="navTrigger">
+              <i></i>
+              <i></i>
+              <i></i>
+          </span>
+      </div>
+  </nav>
+    
+        
+    
+    <!-- Jquery needed -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+        <script>
+            $(window).scroll(function() {
+                if ($(document).scrollTop() > 50) {
+                    $('.nav').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.nav').removeClass('affix');
+                }
+            });
+        </script>
+    
+ <!-- /******************************************
+		/* Contact Form
+		/*******************************************/ -->
+        
+        <section class="contactFormOne fixed-bg">
+            
+			<form action="https://api.web3forms.com/submit" method="POST" id="form">
+                <fieldset>
+                  <legend>Contact Me</legend>
+                  <input type="hidden" name="access_key" value="61f8231f-7176-4785-b855-0a3e9d10e2e6" />
+                  <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+                  <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+                  <input type="checkbox" name="botcheck" id="" style="display: none;" />
+                  <div>
+                    <label for="name">Full Name</label><br>
+                    <input type="text" name="name" id="name" placeholder="John Doe" required />
+                    <br><br>
+                  </div>
+                  <div>
+                    <label for="email">Email Address</label><br>
+                    <input type="email" name="email" id="email" placeholder="you@company.com" required /><br><br>
+                  </div>
+                  <div>
+                    <label for="phone">Phone</label>
+                    <br>
+                    <input type="text" name="phone" id="phone" placeholder="(613) 123-4567" required /><br><br>
+                  </div>
+                  <div>
+                    <label for="message">Your Message</label>
+                    <br>
+                    <textarea rows="5" name="message" id="message" placeholder="Your Message" required></textarea><br><br>
+                  </div>
+              
+                  <button class="contactButton" type="submit"> Send Message </button>
+
+
+                </fieldset>
+
+              </form>
+        </section>
+
+<!-- /******************************************
+		/* Footer
+		/*******************************************/ -->
+
+    <footer class="faqFoot">
+      <div class="top_header">
+      <section>
+        <span><i class="fa fa-map-marker"> <img src="Assets\locationIcon.png" alt="Location Icon"></i></span>
+        <span>Ottawa, On</span>
+        </section>
+        <section>
+        <span><i class="fa fa-phone"> <img src="Assets\PhoneIcon.png" alt="Phone Icon"></i></span>
+        <span>(613) 859-3906</span>
+        </section>
+        <section>
+        <span><i class="fa fa-envelope"><img src="Assets\emailIcon.png" alt="Email Icon"></i></span>
+        <span>tommy_tangle@hotmail.com</span>
+      </section>
+      </div>
+      <span class="border-shape"></span>
+      <div class="bottom_content">
+      <section>
+        <a href="index.html">Home</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="About.html">About</a>
+        <a href="Faq.html">FAQ</a>
+        <a href="Contact.html">Contact</a>
+      </section>
+      </div>
+      <div class="copyright">
+      Copyright © 2023 tommysprays.com - All rights reserved 
+      </div>
+      </footer>
+
+
+<script type="text/javascript" src="JS\Script.js"></script>
+</body>
+</html>
