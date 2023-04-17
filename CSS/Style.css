@@ -2360,7 +2360,7 @@ backdrop-filter: blur(7.8px);
 @media only screen and (max-width: 768px) {
         .parallax {
           /* The image used */
-          background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
+          background-image: url('../Assets/TomPaint.jpeg');
         
        -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
       clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
@@ -2374,7 +2374,7 @@ backdrop-filter: blur(7.8px);
 
       .parallax-bottom {
         /* The image used */
-        background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
+        background-image: url('../Assets/TomHockey.jpeg');
       
      -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
     clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
