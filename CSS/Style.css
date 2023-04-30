@@ -2552,14 +2552,21 @@ backdrop-filter: blur(7.8px);
       
       .nextGal::before { content: '\203A'; }
 
-      @media only screen and (max-width: 768px) {
+       @media only screen and (max-width: 768px) {
         .top {
             padding-top: 40%;
         }
         .lightbox img {
-            height: 350px;
+            height: 450px;
             width: auto;
           }
+          .lightbox a { 
+            color: #ffffff;
+            text-decoration: none;
+          }
+          .nextGal, .prevGal { width: 100px; height: 25px; top: 50%; z-index: 10; opacity: 0.8; font-size: 8em; line-height: 25px; text-shadow: 0px 0px 15px rgba(0, 0, 0, 1); }
+          .prevGal { left: 60px; text-align: left; }
+          .nextGal { right: 60px; text-align: right; }
     }
 
 
