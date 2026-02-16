@@ -251,10 +251,28 @@ document.addEventListener("DOMContentLoaded", () => {
   reveal([".gitImage", ".gitPar", ".gitFaqButton", ".gitContactButton"], 0.35);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const heroVideo = document.querySelector(".hero-video");
+  if (!heroVideo) return;
+
+  // As soon as it can play / is playing, fade it in
+  const showVideo = () => heroVideo.classList.add("is-ready");
+  heroVideo.addEventListener("canplay", showVideo, { once: true });
+  heroVideo.addEventListener("playing", showVideo, { once: true });
+
+  // Try to start immediately (won't hurt if blocked)
+  const tryPlay = () => heroVideo.play().catch(() => {});
+  tryPlay();
+
+  // iOS unlock: first gesture
+  document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+  document.addEventListener("click", tryPlay, { once: true });
+});
 
 
 
    
+
 
 
 
