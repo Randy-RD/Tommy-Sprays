@@ -215,10 +215,47 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* ============================
+   Fade-in observers (About + Get In Touch)
+============================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const reveal = (selectors, threshold = 0.4) => {
+    const els = selectors
+      .map(s => Array.from(document.querySelectorAll(s)))
+      .flat();
+
+    if (!els.length) return;
+
+    // If IntersectionObserver isn't supported, just show everything
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(el => el.classList.add("show"));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold });
+
+    els.forEach(el => observer.observe(el));
+  };
+
+  // About section
+  reveal([".aboutDesc img", ".aboutDesc p", ".aboutDesc button"], 0.35);
+
+  // Get In Touch section
+  reveal([".gitImage", ".gitPar", ".gitFaqButton", ".gitContactButton"], 0.35);
+});
+
 
 
 
    
+
 
 
 
