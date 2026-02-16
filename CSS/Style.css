@@ -172,18 +172,9 @@ html {
 }
 
 @media screen and (max-width:768px) {
-
-	@media (max-width: 768px){
-  body{ padding-top: 90px; }
-}
-    .nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    z-index: 9999;
-  }
+    .nav {
+        width: 90vw;
+    }
     .navTrigger {
         display: block;
         z-index: 12;
@@ -202,26 +193,29 @@ html {
         z-index: 10;
         background-color: transparent; /* Change the background color if needed */
     }
-     .nav div.main_list{
-    position: fixed;
-    top: 90px; /* match your mobile nav height */
-    left: 0;
-    right: 0;
-    height: calc(100vh - 90px);
-    overflow: hidden;
-    z-index: 9998;
-  }
+    .nav div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        margin-top: 20%;
+        position: absolute;
+        left: 0;
+    }
     .nav div.show_list {
         height: auto;
         display: none;
     }
-    .nav div.main_list ul{
-    height: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    flex-direction: column;
-    background-color: #111;
-  }
+    .nav div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #111;
+        /*same background color of navbar*/
+        background-position: center top;
+    }
     .nav div.main_list ul li {
         width: 100%;
         text-align: right;
@@ -2871,6 +2865,7 @@ backdrop-filter: blur(7.8px);
             font-family: Graduate, Arial, sans-serif;
           }
       }
+
 
 
 
