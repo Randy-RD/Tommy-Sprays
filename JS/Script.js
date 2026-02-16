@@ -1,214 +1,225 @@
-/******************************************
-		/* Nav
-	/*******************************************/
-$('.navTrigger').click(function () {
-    $(this).toggleClass('active');
-    console.log("Clicked menu");
-    $("#mainListDiv").toggleClass("show_list");
-    $("#mainListDiv").fadeIn();
+/* ============================
+   Helpers
+============================ */
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-});
+/* ============================
+   Nav: hamburger + affix + logo behavior
+============================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = $(".nav");
+  const navTrigger = $(".navTrigger");
+  const mainListDiv = $("#mainListDiv");
+  const logo = $(".nav div.logo");
 
-$(window).scroll(function () {
-    if ($(window).width() <= 768) {
-        if ($(window).scrollTop() > 0) {
-            $('.nav div.logo').addClass('fixedLogo');
-        } else {
-            $('.nav div.logo').removeClass('fixedLogo');
-        }
-    } else {
-        $('.nav div.logo').removeClass('fixedLogo');
-    }
-});
+  // Toggle mobile menu
+  if (navTrigger && mainListDiv) {
+    navTrigger.addEventListener("click", () => {
+      navTrigger.classList.toggle("active");
+      mainListDiv.classList.toggle("show_list");
+      mainListDiv.style.display = "block";
+    });
 
-$(document).ready(function () {
-    const nav = document.querySelector(".nav");
-  
-    function setNavHeight() {
-      nav.style.height = window.innerWidth > 767 ? "120px" : "90px";
-    }
-  
-    setNavHeight();
-  
-    $(window).scroll(function () {
-      if ($(document).scrollTop() > 50) {
-        $('.nav').addClass('affix');
-        if (window.innerWidth > 767) {
-          nav.style.height = "90px";
-        }
-      } else {
-        $('.nav').removeClass('affix');
-        if (window.innerWidth > 767) {
-          nav.style.height = "120px";
-        }
+    // Keyboard accessibility
+    navTrigger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        navTrigger.click();
       }
     });
-    
-    $(window).resize(function () {
-      setNavHeight();
-    });
+  }
+
+  if (!nav) return;
+
+  const isDesktop = () => window.innerWidth > 767;
+
+  function setNavHeight() {
+    nav.style.height = isDesktop() ? "120px" : "90px";
+  }
+
+  function onScroll() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+    // Affix class
+    if (scrollTop > 50) {
+      nav.classList.add("affix");
+      if (isDesktop()) nav.style.height = "90px";
+    } else {
+      nav.classList.remove("affix");
+      if (isDesktop()) nav.style.height = "120px";
+    }
+
+    // Mobile logo behavior
+    if (logo) {
+      if (window.innerWidth <= 768) {
+        if (scrollTop > 0) logo.classList.add("fixedLogo");
+        else logo.classList.remove("fixedLogo");
+      } else {
+        logo.classList.remove("fixedLogo");
+      }
+    }
+  }
+
+  setNavHeight();
+  onScroll();
+
+  window.addEventListener("resize", () => {
+    setNavHeight();
+    onScroll();
   });
 
-
-/******************************************
-		/* Slideshow
-	/*******************************************/
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const slides = document.querySelectorAll('.slide');
-        const next = document.querySelector('#next');
-        const prev = document.querySelector('#prev');
-        const auto = true; // Auto scroll
-        const intervalTime = 5000;
-        let slideInterval;
-    
-        const nextSlide = () => {
-            // Get current class
-            const current = document.querySelector('.current');
-            // Remove current class
-            current.classList.remove('current');
-            // Check for next slide
-            if (current.nextElementSibling) {
-                // Add current to next sibling
-                current.nextElementSibling.classList.add('current');
-            } else {
-                // Add current to start
-                slides[0].classList.add('current');
-            }
-            setTimeout(() => current.classList.remove('current'));
-        };
-    
-        const prevSlide = () => {
-            // Get current class
-            const current = document.querySelector('.current');
-            // Remove current class
-            current.classList.remove('current');
-            // Check for prev slide
-            if (current.previousElementSibling) {
-                // Add current to prev sibling
-                current.previousElementSibling.classList.add('current');
-            } else {
-                // Add current to last
-                slides[slides.length - 1].classList.add('current');
-            }
-            setTimeout(() => current.classList.remove('current'));
-        };
-    
-        // Button events
-        if (next && prev) {
-            next.addEventListener('click', e => {
-                nextSlide();
-                if (auto) {
-                    clearInterval(slideInterval);
-                    slideInterval = setInterval(nextSlide, intervalTime);
-                }
-            });
-    
-            prev.addEventListener('click', e => {
-                prevSlide();
-                if (auto) {
-                    clearInterval(slideInterval);
-                    slideInterval = setInterval(nextSlide, intervalTime);
-                }
-            });
-    
-            // Auto slide
-            if (auto) {
-                // Run next slide at interval time
-                slideInterval = setInterval(nextSlide, intervalTime);
-    
-                // Pause auto slide on mouseenter
-                const slider = document.querySelector('.slider');
-                if (slider) {
-                    slider.addEventListener('mouseenter', e => {
-                        clearInterval(slideInterval);
-                    });
-    
-                    // Resume auto slide on mouseleave
-                    slider.addEventListener('mouseleave', e => {
-                        slideInterval = setInterval(nextSlide, intervalTime);
-                    });
-                } else {
-                    console.error("The 'slider' element was not found");
-                }
-            }
-        } else {
-            console.error("The 'next' or 'prev' element was not found");
-        }
-    });
-
-
-/******************************************
-		/* FAQ Page
-	/*******************************************/
-
-    const toggles = document.querySelectorAll('.faq-toggle');
-
-    toggles.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const parent = toggle.closest('.faq-question');
-        parent.classList.toggle('active');
-        const panel = parent.querySelector('.panel');
-        panel.checked = !panel.checked;
-      });
-    });
-    
-    const plusSigns = document.querySelectorAll('.plus');
-    
-    plusSigns.forEach(sign => {
-      sign.addEventListener('click', () => {
-        const parent = sign.closest('.faq-question');
-        parent.classList.toggle('active');
-        const panel = parent.querySelector('.panel');
-        panel.checked = !panel.checked;
-      });
-    });
-
-
-
-
-// SOCIAL PANEL JS
-const floating_btn = document.querySelector('.floating-btn');
-const close_btn = document.querySelector('.close-btn');
-const social_panel_container = document.querySelector('.social-panel-container');
-
-floating_btn.addEventListener('click', () => {
-	social_panel_container.classList.toggle('visible')
+  window.addEventListener("scroll", onScroll, { passive: true });
 });
 
-close_btn.addEventListener('click', () => {
-	social_panel_container.classList.remove('visible')
-});
+/* ============================
+   Slideshow
+============================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = $$(".slide");
+  const nextBtn = $("#next");
+  const prevBtn = $("#prev");
+  const slider = $(".slider");
 
+  if (!slides.length || !nextBtn || !prevBtn) return;
 
-$(document).ready(function() {
-    // Add smooth scrolling to all links
-    $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-        // Prevent default anchor click behavior
-        event.preventDefault();
-  
-        // Store hash
-        var hash = this.hash;
-  
-        // Using jQuery's animate() method to add smooth page scroll
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top
-        }, 800, function(){
-     
-          // Add hash (#) to URL when done scrolling (default click behavior)
-          window.location.hash = hash;
-        });
-      } // End if
-    });
+  const auto = true;
+  const intervalTime = 5000;
+  let slideInterval = null;
+
+  const getCurrent = () => $(".slide.current");
+
+  const goNext = () => {
+    const current = getCurrent();
+    if (!current) {
+      slides[0].classList.add("current");
+      return;
+    }
+    current.classList.remove("current");
+
+    const next = current.nextElementSibling?.classList?.contains("slide")
+      ? current.nextElementSibling
+      : slides[0];
+
+    next.classList.add("current");
+  };
+
+  const goPrev = () => {
+    const current = getCurrent();
+    if (!current) {
+      slides[0].classList.add("current");
+      return;
+    }
+    current.classList.remove("current");
+
+    const prev = current.previousElementSibling?.classList?.contains("slide")
+      ? current.previousElementSibling
+      : slides[slides.length - 1];
+
+    prev.classList.add("current");
+  };
+
+  nextBtn.addEventListener("click", () => {
+    goNext();
+    if (auto) {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(goNext, intervalTime);
+    }
   });
 
+  prevBtn.addEventListener("click", () => {
+    goPrev();
+    if (auto) {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(goNext, intervalTime);
+    }
+  });
+
+  if (auto) {
+    slideInterval = setInterval(goNext, intervalTime);
+
+    if (slider) {
+      slider.addEventListener("mouseenter", () => clearInterval(slideInterval));
+      slider.addEventListener("mouseleave", () => {
+        slideInterval = setInterval(goNext, intervalTime);
+      });
+    }
+  }
+});
+
+/* ============================
+   FAQ toggles (safe if FAQ not on this page)
+============================ */
+document.addEventListener("DOMContentLoaded", () => {
+  function toggleFaq(el) {
+    const parent = el.closest(".faq-question");
+    if (!parent) return;
+    parent.classList.toggle("active");
+
+    const panel = parent.querySelector(".panel");
+    if (panel && "checked" in panel) panel.checked = !panel.checked;
+  }
+
+  $$(".faq-toggle").forEach((t) => t.addEventListener("click", () => toggleFaq(t)));
+  $$(".plus").forEach((p) => p.addEventListener("click", () => toggleFaq(p)));
+});
+
+/* ============================
+   Social panel (safe if elements not present)
+============================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const floatingBtn = $(".floating-btn");
+  const closeBtn = $(".close-btn");
+  const panel = $(".social-panel-container");
+
+  if (floatingBtn && panel) {
+    floatingBtn.addEventListener("click", () => panel.classList.toggle("visible"));
+  }
+  if (closeBtn && panel) {
+    closeBtn.addEventListener("click", () => panel.classList.remove("visible"));
+  }
+});
+
+/* ============================
+   Smooth scrolling for hash links only
+============================ */
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link) return;
+
+  const href = link.getAttribute("href");
+  if (!href || !href.startsWith("#") || href === "#") return;
+
+  const target = document.querySelector(href);
+  if (!target) return;
+
+  event.preventDefault();
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  history.pushState(null, "", href);
+});
+
+/* ============================
+   iOS autoplay assist (helps mobile Safari)
+============================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const vids = document.querySelectorAll("video[autoplay]");
+  vids.forEach((v) => {
+    v.muted = true;
+    v.playsInline = true;
+
+    const tryPlay = () => v.play().catch(() => {});
+    tryPlay();
+
+    document.addEventListener("touchstart", tryPlay, { once: true });
+    document.addEventListener("click", tryPlay, { once: true });
+  });
+});
 
 
 
 
    
+
 
 
 
