@@ -725,6 +725,10 @@ html {
   opacity: 1;
 }
 
+.Herro.video-playing{
+  background-image: none;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -2884,5 +2888,6 @@ backdrop-filter: blur(7.8px);
             font-family: Graduate, Arial, sans-serif;
           }
       }
+
 
 
