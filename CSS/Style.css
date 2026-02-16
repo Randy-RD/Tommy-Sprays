@@ -859,7 +859,6 @@ html {
 @media only screen and (orientation: landscape) and (max-width: 700px) {
     .Herro {
         height: 60vh;
-        background-image: url('../Assets/OttawaAirbrushMaskArtTommy.jpg');
         background-size: cover;
         background-position-y: -200px;
         background-position-x: -60px;
@@ -2887,6 +2886,7 @@ backdrop-filter: blur(7.8px);
             font-family: Graduate, Arial, sans-serif;
           }
       }
+
 
 
 
