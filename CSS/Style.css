@@ -712,9 +712,17 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* makes it act like background-size: cover */
+  object-fit: cover;
   object-position: center;
   z-index: 0;
+
+  /* NEW: start hidden, fade in when ready */
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+.hero-video.is-ready {
+  opacity: 1;
 }
 
 .hero-overlay {
@@ -2876,4 +2884,5 @@ backdrop-filter: blur(7.8px);
             font-family: Graduate, Arial, sans-serif;
           }
       }
+
 
