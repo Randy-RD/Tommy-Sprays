@@ -13,18 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainListDiv = $("#mainListDiv");
   const logo = $(".nav div.logo");
 
-   $(window).scroll(function () {
-    if ($(window).width() <= 768) {
-        if ($(window).scrollTop() > 0) {
-            $('.nav div.logo').addClass('fixedLogo');
-        } else {
-            $('.nav div.logo').removeClass('fixedLogo');
-        }
-    } else {
-        $('.nav div.logo').removeClass('fixedLogo');
-    }
-});
-
   // Toggle mobile menu
   if (navTrigger && mainListDiv) {
     navTrigger.addEventListener("click", () => {
@@ -62,7 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isDesktop()) nav.style.height = "120px";
     }
 
-   
+    // Mobile logo behavior
+    if (logo) {
+      if (window.innerWidth <= 768) {
+        if (scrollTop > 0) logo.classList.add("fixedLogo");
+        else logo.classList.remove("fixedLogo");
+      } else {
+        logo.classList.remove("fixedLogo");
+      }
+    }
+  }
 
   setNavHeight();
   onScroll();
@@ -277,6 +274,7 @@ v.closest(".Herro")?.classList.add("video-playing");
 
 
    
+
 
 
 
