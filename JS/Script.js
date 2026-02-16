@@ -269,9 +269,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", tryPlay, { once: true });
 });
 
+v.closest(".Herro")?.classList.add("video-playing");
+
 
 
    
+
 
 
 
