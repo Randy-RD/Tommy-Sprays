@@ -50,16 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isDesktop()) nav.style.height = "120px";
     }
 
-    // Mobile logo behavior
-    if (logo) {
-      if (window.innerWidth <= 768) {
-        if (scrollTop > 0) logo.classList.add("fixedLogo");
-        else logo.classList.remove("fixedLogo");
-      } else {
-        logo.classList.remove("fixedLogo");
-      }
-    }
-  }
+   
 
   setNavHeight();
   onScroll();
@@ -274,6 +265,7 @@ v.closest(".Herro")?.classList.add("video-playing");
 
 
    
+
 
 
 
