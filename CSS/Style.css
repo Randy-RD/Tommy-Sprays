@@ -172,6 +172,10 @@ html {
 }
 
 @media screen and (max-width:768px) {
+
+	@media (max-width: 768px){
+  body{ padding-top: 90px; }
+}
     .nav{
     position: fixed;
     top: 0;
@@ -2867,6 +2871,7 @@ backdrop-filter: blur(7.8px);
             font-family: Graduate, Arial, sans-serif;
           }
       }
+
 
 
 
