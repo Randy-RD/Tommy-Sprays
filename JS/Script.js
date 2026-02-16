@@ -13,6 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainListDiv = $("#mainListDiv");
   const logo = $(".nav div.logo");
 
+   $(window).scroll(function () {
+    if ($(window).width() <= 768) {
+        if ($(window).scrollTop() > 0) {
+            $('.nav div.logo').addClass('fixedLogo');
+        } else {
+            $('.nav div.logo').removeClass('fixedLogo');
+        }
+    } else {
+        $('.nav div.logo').removeClass('fixedLogo');
+    }
+});
+
   // Toggle mobile menu
   if (navTrigger && mainListDiv) {
     navTrigger.addEventListener("click", () => {
@@ -265,6 +277,7 @@ v.closest(".Herro")?.classList.add("video-playing");
 
 
    
+
 
 
 
