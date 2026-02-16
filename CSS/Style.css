@@ -690,17 +690,45 @@ html {
 .Herro {
     width: 100%;
     height: 100vh;
-    background-image: url('../Assets/image12.png');
-    background-position-x: center;
-    background-position-y: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    position: relative;   /* NEW */
+    overflow: hidden;     /* NEW */
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     border-bottom: solid 15px white;
+
+    /* Optional fallback image while video loads */
+    background-image: url('../Assets/image12.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* makes it act like background-size: cover */
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); /* adjust darkness */
+  z-index: 1;
+}
+
+/* Make sure text is above video + overlay */
+.Herro h1,
+.Herro span {
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes fadeIn {
@@ -2848,3 +2876,4 @@ backdrop-filter: blur(7.8px);
             font-family: Graduate, Arial, sans-serif;
           }
       }
+
