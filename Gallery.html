@@ -1,493 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KRNVKNKS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KRNVKNKS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H7KRNVKNKS');
+  </script>
 
-  gtag('config', 'G-H7KRNVKNKS');
-</script>
-   
-    <title>Gallery | Tommy Sprays</title>
+  <title>Gallery | Tommy Sprays</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gallery | Ottawa based, Custom airbrushing of goalie masks, helmets, motorcycles and more.">
-    <meta name="keywords" content="Airbrush, Goalie Mask, Custom airbrush, Ottawa, Helmets, Motorcycle">
-    <meta property="og:title" content="Tommy Sprays Custom Airbrush And Design">
-    <meta property="og:description" content="Ottawa based, Custom airbrushing of goalie masks, helmets, motorcycles and more.">
-    <meta property="og:image" content="OGAirbrush.png">
-    <meta property="og:url" content="TomWeb.html">
-    <meta property="og:type" content="website">
-    
-    <link rel="stylesheet" href="CSS\Style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Graduate&family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link rel="icon" href="Assets/favicon.ico" type="image/x-icon">
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gallery | Ottawa based, Custom airbrushing of goalie masks, helmets, motorcycles and more.">
+  <meta name="keywords" content="Airbrush, Goalie Mask, Custom airbrush, Ottawa, Helmets, Motorcycle">
+  <meta property="og:title" content="Tommy Sprays Custom Airbrush And Design">
+  <meta property="og:description" content="Ottawa based, Custom airbrushing of goalie masks, helmets, motorcycles and more.">
+  <meta property="og:image" content="OGAirbrush.png">
+  <meta property="og:url" content="TomWeb.html">
+  <meta property="og:type" content="website">
 
+  <link rel="stylesheet" href="CSS/Style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Graduate&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link rel="icon" href="Assets/favicon.ico" type="image/x-icon">
+
+  <!-- PhotoSwipe CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
 </head>
 
 <body class="mainBod always-affix">
 
-    
-    <nav class="nav">
-      <div class="container">
-          <div class="logo fixedLogo">
-              <a href="index.html"><img src="Assets\OttawaAirbrushGoalieMaskLogo.png" alt="Airbrush Logo"></a>
-          </div>
-          <div id="mainListDiv" class="main_list">
-              <ul class="navlinks">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="Gallery.html">Gallery</a></li>
-                  <li><a href="About.html">About</a></li>
-                  <li><a href="Faq.html">FAQ</a></li>
-                  <li><a href="Contact.html">Contact</a></li>
-                  <li><a href="https://www.instagram.com/tommysprays/"><img class="headInsta" src="Assets\InstaIcon.png" alt="Instagram Icon"></a></li>
-                  <!-- <li><a href=""><img class="headTik" src="TikTokIcon.png" alt=""></a></li> -->
-              </ul>
-          </div>
-          <span class="navTrigger">
-              <i></i>
-              <i></i>
-              <i></i>
-          </span>
+  <nav class="nav">
+    <div class="container">
+      <div class="logo fixedLogo">
+        <a href="index.html">
+          <img src="Assets/OttawaAirbrushGoalieMaskLogo.png" alt="Airbrush Logo" decoding="async">
+        </a>
       </div>
+
+      <div id="mainListDiv" class="main_list">
+        <ul class="navlinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Faq.html">FAQ</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li>
+            <a href="https://www.instagram.com/tommysprays/">
+              <img class="headInsta" src="Assets/InstaIcon.png" alt="Instagram Icon" loading="lazy" decoding="async">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <span class="navTrigger" aria-label="Open menu" role="button" tabindex="0">
+        <i></i><i></i><i></i>
+      </span>
+    </div>
   </nav>
 
-        
-    
-    <!-- Jquery needed -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    
-    <!-- Function used to shrink nav bar removing paddings and adding black background -->
-        <script>
-            $(window).scroll(function() {
-                if ($(document).scrollTop() > 50) {
-                    $('.nav').addClass('affix');
-                    console.log("OK");
-                } else {
-                    $('.nav').removeClass('affix');
-                }
-            });
-        </script>
+  <!-- Gallery Grid -->
+  <section class="top">
+    <!--
+      PhotoSwipe expects:
+      - <a href="FULL_IMAGE"> around each thumbnail
+      - data-pswp-width and data-pswp-height for the full image size
+    -->
+    <div class="gallery-grid" id="galleryGrid">
 
+      <!-- NOTE: Replace 1200/1200 with real full image dimensions later -->
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt1.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt1.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
 
-<!-- *********************************
-***********  Main  *******
-******************************************************** -->
-<ul class="top">
-    <li class="galleryItem">
-      <a class="caption" href="#1">
-        <img src="Assets\OttawaAirbrushGoalieMaskArt1.jpg" alt="Custom Goalie Mask Art">
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt2.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt2.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
       </a>
-    </li>
-    <li class="galleryItem">
-      <a class="caption" href="#2">
-        <img src="Assets\OttawaAirbrushGoalieMaskArt2.jpg" alt="Custom Goalie Mask Art">
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt3.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt3.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
       </a>
-    </li>
-    <li class="galleryItem">
-      <a class="caption" href="#3">
-        <img src="Assets\OttawaAirbrushGoalieMaskArt3.jpg" alt="Custom Goalie Mask Art">
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt4.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt4.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
       </a>
-    </li>
-    <li class="galleryItem">
-      <a class="caption" href="#4">
-        <img src="Assets\OttawaAirbrushGoalieMaskArt4.jpg" alt="Custom Goalie Mask Art">
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt5.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt5.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
       </a>
-    </li>
-    <li class="galleryItem">
-      <a class="caption" href="#5">
-        <img src="Assets\OttawaAirbrushGoalieMaskArt5.jpg" alt="Custom Goalie Mask Art">
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt6.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt6.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
       </a>
-    </li>
-    <li class="galleryItem">
-      <a class="caption" href="#6">
-        <img src="Assets\OttawaAirbrushGoalieMaskArt6.jpg" alt="Custom Goalie Mask Art">
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt7.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt7.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
       </a>
-    </li>
-    <li class="galleryItem">
-        <a class="caption" href="#7">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt7.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#8">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt8.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#9">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt9.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#10">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt10.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#11">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt11.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#12">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt12.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#13">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt13.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#14">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt14.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#15">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt15.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#16">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt16.jpg" alt="Custom Goalie Mask Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#17">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt17.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#18">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt18.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#19">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt19.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#20">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt20.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#21">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt21.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#22">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt22.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#23">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt23.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#24">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt24.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#25">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt25.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#26">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt26.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#27">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt27.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-      <li class="galleryItem">
-        <a class="caption" href="#28">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt28.jpg" alt="Custom Construction Helmet Art">
-        </a>
-      </li>
-  </ul>
-      
-  <!-- lightbox -->
-  
-  <div class="lightbox" id="1">
-     <div class="images">
-         <img src="Assets\OttawaAirbrushGoalieMaskArt1.jpg" alt="Custom goalie mask art">
-            <a href="#17" class="prevGal"></a>
-            <a href="#" class="close"></a>
-            <a href="#2" class="nextGal"></a>
-     </div>
-  </div>
-  <div class="lightbox" id="2">
-      <div class="images">
-           <img src="Assets\OttawaAirbrushGoalieMaskArt2.jpg" alt="Custom goalie mask art">
-               <a href="#1" class="prevGal"></a>
-               <a href="#" class="close"></a>
-               <a href="#3" class="nextGal"></a>
-          </div>
-      </div>
-      <div class="lightbox" id="3">
-          <div class="images">
-              <img src="Assets\OttawaAirbrushGoalieMaskArt3.jpg" alt="Custom goalie mask art">
-                  <a href="#2" class="prevGal"></a>
-                  <a href="#" class="close"></a>
-                  <a href="#4" class="nextGal"></a>
-         </div>
-     </div>
-      <div class="lightbox" id="4">
-          <div class="images">
-              <img src="Assets\OttawaAirbrushGoalieMaskArt4.jpg" alt="Custom goalie mask art">
-                  <a href="#3" class="prevGal"></a>
-                  <a href="#" class="close"></a>
-                  <a href="#5" class="nextGal"></a>
-         </div>
-     </div>
-      <div class="lightbox" id="5">
-          <div class="images">
-              <img src="Assets\OttawaAirbrushGoalieMaskArt5.jpg" alt="Custom goalie mask art">
-                  <a href="#4" class="prevGal"></a>
-                  <a href="#" class="close"></a>
-                  <a href="#6" class="nextGal"></a>
-         </div>
-     </div>
-      <div class="lightbox" id="6">
-          <div class="images">
-              <img src="Assets\OttawaAirbrushGoalieMaskArt6.jpg" alt="Custom goalie mask art">
-                  <a href="#5" class="prevGal"></a>
-                  <a href="#" class="close"></a>
-                  <a href="#7" class="nextGal"></a>
-         </div>
-        </div>   
-         <div class="lightbox" id="7">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt7.jpg" alt="Custom goalie mask art">
-                    <a href="#6" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#8" class="nextGal"></a>
-           </div>
-        </div> 
-           <div class="lightbox" id="8">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt8.jpg" alt="Custom goalie mask art">
-                    <a href="#7" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#9" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="9">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt9.jpg" alt="Custom goalie mask art">
-                    <a href="#8" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#10" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="10">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt10.jpg" alt="Custom goalie mask art">
-                    <a href="#9" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#11" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="11">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt11.jpg" alt="Custom goalie mask art">
-                    <a href="#10" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#12" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="12">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt12.jpg" alt="Custom goalie mask art">
-                    <a href="#11" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#13" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="13">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt13.jpg" alt="Custom goalie mask art">
-                    <a href="#12" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#14" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="14">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt14.jpg" alt="Custom goalie mask art">
-                    <a href="#13" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#15" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="15">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt15.jpg" alt="Custom goalie mask art">
-                    <a href="#14" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#16" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="16">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt16.jpg" alt="Custom goalie mask art">
-                    <a href="#15" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#17" class="nextGal"></a>
-           </div>
-        </div>
-           <div class="lightbox" id="17">
-            <div class="images">
-                <img src="Assets\OttawaAirbrushGoalieMaskArt17.jpg" alt="Custom construction helmet art">
-                    <a href="#16" class="prevGal"></a>
-                    <a href="#" class="close"></a>
-                    <a href="#18" class="nextGal"></a>
-           </div>
-        </div>
-        <div class="lightbox" id="18">
-          <div class="images">
-              <img src="Assets\OttawaAirbrushGoalieMaskArt18.jpg" alt="Custom goalie mask art">
-                  <a href="#17" class="prevGal"></a>
-                  <a href="#" class="close"></a>
-                  <a href="#19" class="nextGal"></a>
-         </div>
-      </div>
-      <div class="lightbox" id="19">
-        <div class="images">
-            <img src="Assets\OttawaAirbrushGoalieMaskArt19.jpg" alt="Custom goalie mask art">
-                <a href="#18" class="prevGal"></a>
-                <a href="#" class="close"></a>
-                <a href="#20" class="nextGal"></a>
-       </div>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt8.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt8.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt9.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt9.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt10.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt10.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt11.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt11.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt12.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt12.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt13.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt13.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt14.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt14.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt15.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt15.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt16.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt16.jpg" alt="Custom Goalie Mask Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt17.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt17.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt18.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt18.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt19.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt19.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt20.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt20.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt21.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt21.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt22.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt22.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt23.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt23.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt24.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt24.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt25.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt25.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt26.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt26.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt27.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt27.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
+      <a class="gallery-card" href="Assets/OttawaAirbrushGoalieMaskArt28.jpg" data-pswp-width="1668" data-pswp-height="2224" >
+        <img src="Assets/OttawaAirbrushGoalieMaskArt28.jpg" alt="Custom Construction Helmet Art" loading="lazy" decoding="async">
+      </a>
+
     </div>
-    <div class="lightbox" id="20">
-      <div class="images">
-          <img src="Assets\OttawaAirbrushGoalieMaskArt20.jpg" alt="Custom goalie mask art">
-              <a href="#19" class="prevGal"></a>
-              <a href="#" class="close"></a>
-              <a href="#21" class="nextGal"></a>
-     </div>
-  </div>
-  <div class="lightbox" id="21">
-    <div class="images">
-        <img src="Assets\OttawaAirbrushGoalieMaskArt21.jpg" alt="Custom goalie mask art">
-            <a href="#20" class="prevGal"></a>
-            <a href="#" class="close"></a>
-            <a href="#22" class="nextGal"></a>
-   </div>
-</div>
-<div class="lightbox" id="22">
-  <div class="images">
-      <img src="Assets\OttawaAirbrushGoalieMaskArt22.jpg" alt="Custom goalie mask art">
-          <a href="#21" class="prevGal"></a>
-          <a href="#" class="close"></a>
-          <a href="#23" class="nextGal"></a>
- </div>
-</div>
-<div class="lightbox" id="23">
-  <div class="images">
-      <img src="Assets\OttawaAirbrushGoalieMaskArt23.jpg" alt="Custom goalie mask art">
-          <a href="#22" class="prevGal"></a>
-          <a href="#" class="close"></a>
-          <a href="#24" class="nextGal"></a>
- </div>
-</div>
-<div class="lightbox" id="24">
-  <div class="images">
-      <img src="Assets\OttawaAirbrushGoalieMaskArt24.jpg" alt="Custom goalie mask art">
-          <a href="#23" class="prevGal"></a>
-          <a href="#" class="close"></a>
-          <a href="#25" class="nextGal"></a>
- </div>
-</div>
-<div class="lightbox" id="25">
-  <div class="images">
-      <img src="Assets\OttawaAirbrushGoalieMaskArt25.jpg" alt="Custom goalie mask art">
-          <a href="#24" class="prevGal"></a>
-          <a href="#" class="close"></a>
-          <a href="#26" class="nextGal"></a>
- </div>
-</div>
-<div class="lightbox" id="26">
-  <div class="images">
-      <img src="Assets\OttawaAirbrushGoalieMaskArt26.jpg" alt="Custom goalie mask art">
-          <a href="#25" class="prevGal"></a>
-          <a href="#" class="close"></a>
-          <a href="#27" class="nextGal"></a>
- </div>
-</div>
-<div class="lightbox" id="27">
-  <div class="images">
-      <img src="Assets\OttawaAirbrushGoalieMaskArt27.jpg" alt="Custom goalie mask art">
-          <a href="#26" class="prevGal"></a>
-          <a href="#" class="close"></a>
-          <a href="#28" class="nextGal"></a>
- </div>
-</div>
-<div class="lightbox" id="28">
-  <div class="images">
-      <img src="Assets\OttawaAirbrushGoalieMaskArt28.jpg" alt="Custom goalie mask art">
-          <a href="#27" class="prevGal"></a>
-          <a href="#" class="close"></a>
-          <a href="#1" class="nextGal"></a>
- </div>
-</div>
-     </div> 
-
-
-
-
- 
-<!-- *********************************
-***********  Footer  *******
-******************************************************** -->
-<footer class="faqFoot">
-  <div class="top_header">
-  <section>
-    <span><i class="fa fa-map-marker"> <img src="Assets\locationIcon.png" alt="Location Icon"></i></span>
-    <span>Ottawa, On</span>
-    </section>
-    <section>
-    <span><i class="fa fa-phone"> <img src="Assets\PhoneIcon.png" alt="Phone Icon"></i></span>
-    <span>(613) 859-3906</span>
-    </section>
-    <section>
-    <span><i class="fa fa-envelope"><img src="Assets\emailIcon.png" alt="Email Icon"></i></span>
-    <span>tommy_tangle@hotmail.com</span>
   </section>
-  </div>
-  <span class="border-shape"></span>
-  <div class="bottom_content">
-  <section>
-    <a href="index.html">Home</a>
-    <a href="Gallery.html">Gallery</a>
-    <a href="About.html">About</a>
-    <a href="Faq.html">FAQ</a>
-    <a href="Contact.html">Contact</a>
-  </section>
-  </div>
-  <div class="copyright">
-  Copyright © 2023 tommysprays.com - All rights reserved 
-  </div>
+
+  <!-- Footer -->
+  <footer class="faqFoot">
+    <div class="top_header">
+      <section>
+        <span><i class="fa fa-map-marker"> <img src="Assets/locationIcon.png" alt="Location Icon"></i></span>
+        <span>Ottawa, On</span>
+      </section>
+      <section>
+        <span><i class="fa fa-phone"> <img src="Assets/PhoneIcon.png" alt="Phone Icon"></i></span>
+        <span>(613) 859-3906</span>
+      </section>
+      <section>
+        <span><i class="fa fa-envelope"><img src="Assets/emailIcon.png" alt="Email Icon"></i></span>
+        <span>tommy_tangle@hotmail.com</span>
+      </section>
+    </div>
+
+    <span class="border-shape"></span>
+
+    <div class="bottom_content">
+      <section>
+        <a href="index.html">Home</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="About.html">About</a>
+        <a href="Faq.html">FAQ</a>
+        <a href="Contact.html">Contact</a>
+      </section>
+    </div>
+
+    <div class="copyright">
+      Copyright © 2023 tommysprays.com - All rights reserved
+    </div>
   </footer>
 
+  <script type="text/javascript" src="JS/Script.js"></script>
 
-<script type="text/javascript" src="JS\Script.js"></script>
+  <!-- PhotoSwipe JS -->
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#galleryGrid',
+      children: 'a',
+      pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
+    });
+
+    lightbox.init();
+  </script>
+
 </body>
 </html>
