@@ -2832,6 +2832,39 @@ html, body { overflow-x: hidden; }
 
 
 
+/* =========================
+   PhotoSwipe iOS FIX
+   Force true full-screen overlay
+   ========================= */
+
+/* In case any parent creates a clipping context */
+html, body {
+  overflow-x: hidden;
+}
+
+/* PhotoSwipe root must be viewport-fixed */
+.pswp {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999999 !important;
+}
+
+/* Make sure no transform/filter/backdrop on ancestors causes iOS fixed bugs */
+body.pswp-open,
+html.pswp-open {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* If any container is causing clipping, neutralize it while viewer is open */
+body.pswp-open .mainBod {
+  transform: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
 
 
 
