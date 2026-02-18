@@ -230,6 +230,7 @@
     const lightbox = new PhotoSwipeLightbox({
       gallery: '#galleryGrid',
       children: 'a',
+      appendToEl: document.body,
       pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
     });
 
@@ -238,3 +239,4 @@
 
 </body>
 </html>
+
